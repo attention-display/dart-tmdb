@@ -21,6 +21,7 @@ class TmdbApi {
     _language = lan;
 
     _dio = Dio();
+    _movies = Movies(this);
   }
 
   /// A getter method. It is used to get the value of the private variable `_movies`.
