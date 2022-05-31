@@ -1,6 +1,7 @@
 library tmdb;
 
 import 'package:dio/dio.dart';
+part 'src/api/movies.dart';
 
 /// It's a class that contains a private method that makes a request to the TMDb API and returns a
 /// Future of a Map of dynamic values
@@ -9,6 +10,8 @@ class TmdbApi {
   late String _apiKey;
   late String _language;
   late Dio _dio;
+
+  late Movies _movies;
 
   /// The constructor of the class.
   /// @param {String} apiKey - The API key you got from TMDb.
@@ -19,6 +22,9 @@ class TmdbApi {
 
     _dio = Dio();
   }
+
+  /// A getter method. It is used to get the value of the private variable `_movies`.
+  Movies get movies => _movies;
 
   /// A setter method. It is used to set the value of the private variable `_language`.
   set language(String lan) {
