@@ -19,7 +19,7 @@ class Authentication {
   ///
   /// Returns:
   ///   A Future<Map<String, dynamic>>
-  Future<Map<String, dynamic>> createRequestSession() {
+  Future<Map<String, dynamic>> createRequestToken() {
     return _tmdb._query("/$_title/token/new", {});
   }
 
