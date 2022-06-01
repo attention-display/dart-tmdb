@@ -17,4 +17,16 @@ class Movies {
   Future<Map<String, dynamic>> getDetails(int movieId) {
     return _tmdb._query("/movie/$movieId", {});
   }
+
+  // Get a list of the current popular movies on TMDB. This list updates daily.
+  /// It returns a Future object that contains a Map of String and dynamic.
+  ///
+  /// Args:
+  ///   page (int): The page of results to return. Defaults to 1
+  ///
+  /// Returns:
+  ///   A Future<Map<String, dynamic>>
+  Future<Map<String, dynamic>> getPopular({int page = 1}) {
+    return _tmdb._query("/movie/popular", {"page": page});
+  }
 }
