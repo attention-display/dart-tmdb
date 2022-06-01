@@ -3,6 +3,7 @@ part of tmdb;
 /// About the film's Api
 class Movies {
   final TmdbApi _tmdb;
+  final _title = "movie";
 
   Movies(this._tmdb);
 
@@ -15,7 +16,7 @@ class Movies {
   /// Returns:
   ///   A Future<Map<String, dynamic>>
   Future<Map<String, dynamic>> getDetails(int movieId) {
-    return _tmdb._query("/movie/$movieId", {});
+    return _tmdb._query("/$_title/$movieId", {});
   }
 
   // Get a list of the current popular movies on TMDB. This list updates daily.
@@ -27,6 +28,6 @@ class Movies {
   /// Returns:
   ///   A Future<Map<String, dynamic>>
   Future<Map<String, dynamic>> getPopular({int page = 1}) {
-    return _tmdb._query("/movie/popular", {"page": page});
+    return _tmdb._query("/$_title/popular", {"page": page});
   }
 }
