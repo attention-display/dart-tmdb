@@ -430,3 +430,97 @@ class AccountRatedTVShows {
     return data;
   }
 }
+
+class AccountRatedTVEpisodes {
+  int? page;
+  List<AccountRatedTVEpisodesResults>? results;
+  int? totalPages;
+  int? totalResults;
+
+  AccountRatedTVEpisodes(
+      {this.page, this.results, this.totalPages, this.totalResults});
+
+  AccountRatedTVEpisodes.fromJson(Map<String, dynamic> json) {
+    page = json['page'];
+    if (json['results'] != null) {
+      results = <AccountRatedTVEpisodesResults>[];
+      json['results'].forEach((v) {
+        results!.add(new AccountRatedTVEpisodesResults.fromJson(v));
+      });
+    }
+    totalPages = json['total_pages'];
+    totalResults = json['total_results'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['page'] = this.page;
+    if (this.results != null) {
+      data['results'] = this.results!.map((v) => v.toJson()).toList();
+    }
+    data['total_pages'] = this.totalPages;
+    data['total_results'] = this.totalResults;
+    return data;
+  }
+}
+
+class AccountRatedTVEpisodesResults {
+  String? airDate;
+  int? episodeNumber;
+  int? id;
+  String? name;
+  String? overview;
+  String? productionCode;
+  int? seasonNumber;
+  int? showId;
+  String? stillPath;
+  int? voteAverage;
+  int? voteCount;
+  int? rating;
+
+  AccountRatedTVEpisodesResults(
+      {this.airDate,
+      this.episodeNumber,
+      this.id,
+      this.name,
+      this.overview,
+      this.productionCode,
+      this.seasonNumber,
+      this.showId,
+      this.stillPath,
+      this.voteAverage,
+      this.voteCount,
+      this.rating});
+
+  AccountRatedTVEpisodesResults.fromJson(Map<String, dynamic> json) {
+    airDate = json['air_date'];
+    episodeNumber = json['episode_number'];
+    id = json['id'];
+    name = json['name'];
+    overview = json['overview'];
+    productionCode = json['production_code'];
+    seasonNumber = json['season_number'];
+    showId = json['show_id'];
+    stillPath = json['still_path'];
+    voteAverage = json['vote_average'];
+    voteCount = json['vote_count'];
+    rating = json['rating'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['air_date'] = this.airDate;
+    data['episode_number'] = this.episodeNumber;
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['overview'] = this.overview;
+    data['production_code'] = this.productionCode;
+    data['season_number'] = this.seasonNumber;
+    data['show_id'] = this.showId;
+    data['still_path'] = this.stillPath;
+    data['vote_average'] = this.voteAverage;
+    data['vote_count'] = this.voteCount;
+    data['rating'] = this.rating;
+    return data;
+  }
+}
